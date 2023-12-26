@@ -1,0 +1,48 @@
+/* Reset default browser styles */
+* {
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #121b2e;
+}
+
+/* Styles for the main video stream */
+#active-participant {
+  background: #ccc;
+  border-radius: 16px;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  margin: 20px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Container for the small video streams */
+#participants {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Small video stream */
+#participants video {
+  height: 120px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* Hover effect for the small video streams */
+#participants video:hover {
+  transform: scale(1.1);
+  transition: transform 120ms ease-out;
+}

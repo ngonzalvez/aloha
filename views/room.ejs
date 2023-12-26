@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <!-- Load the stylesheet -->
+    <link rel="stylesheet" href="/styles.css" />
+
+    <!-- Load socket.io -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- Store the room ID in a global variable, so that we can access it later -->
+    <script>
+      window.aloha = { roomId: "<%= roomId %>" };
+    </script>
+
+    <!-- Load the app code -->
+    <script src="/main.js"></script>
+  </head>
+
+  <body>
+    <video id="active-participant" autoplay></video>
+    <div id="participants"></div>
+  </body>
+</html>
