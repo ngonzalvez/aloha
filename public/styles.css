@@ -12,7 +12,7 @@ body {
 
 /* Styles for the main video stream */
 #active-participant {
-  background: #ccc;
+  background: #fff;
   border-radius: 16px;
   width: calc(100% - 40px);
   height: calc(100% - 40px);
@@ -27,6 +27,12 @@ body {
   justify-content: center;
   align-items: center;
   gap: 20px;
+
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  min-width: 140px;
+  height: 120px;
+  padding: 16px;
 
   position: absolute;
   bottom: 40px;
