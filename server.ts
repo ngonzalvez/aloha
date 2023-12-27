@@ -27,7 +27,23 @@ const server = createServer(app);
 const ws = new Server(server);
 
 ws.on("connection", (socket: any) => {
-  // Web socket server code here...
+  socket.on("JoinRoom", (roomId: string) => {
+    // Notify everyone in the room.
+    socket.to(roomId).emit("UserJoined", socket.id);
+
+    // Add the user to the room.
+    socket.join(roomId);
+
+    socket.on("disconnect", () => {
+      // Notify everyone in the room that the user has left.
+      socket.to(roomId).emit("UserLeft", socket.id);
+    });
+  });
+
+  socket.on("Signal", (peerId: string, message: any) => {
+    // Relay the message to the other peer.
+    socket.to(peerId).emit("Signal", socket.id, message);
+  });
 });
 
 // Start the server.
