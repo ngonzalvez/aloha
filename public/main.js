@@ -17,8 +17,7 @@ async function init() {
     audio: true,
   });
 
-  addParticipantStream(localStream, "me", true);
-  setActiveParticipantStream(localStream, true);
+  addParticipantStream(localStream, "me");
   socket.emit("JoinRoom", roomId);
 }
 
@@ -28,23 +27,34 @@ window.onload = init;
 //                                                UI UTILITIES
 //----------------------------------------------------------------------------------------------------------------------
 function addParticipantStream(stream, peerId) {
+  let mediaStream = stream;
+
+  if (peerId === "me") {
+    // Mute the stream so that we don't hear ourselves.
+    mediaStream = new MediaStream();
+    stream.getVideoTracks().forEach((track) => {
+      mediaStream.addTrack(track);
+    });
+
+    // Show us in the big screen.
+    setActiveParticipantStream(mediaStream);
+  }
+
   // Create the video preview.
   const video = document.createElement("video");
-  video.srcObject = stream;
+  video.srcObject = mediaStream;
   video.autoplay = true;
-  video.onclick = () => setActiveParticipantStream(stream, peerId === "me");
+  video.onclick = () => setActiveParticipantStream(mediaStream);
   video.setAttribute("data-peer-id", peerId);
-  video.setAttribute("muted", peerId === "me");
 
   // Append it to the participants container.
   const container = document.getElementById("participants");
   container.appendChild(video);
 }
 
-function setActiveParticipantStream(stream, isMuted) {
+function setActiveParticipantStream(stream) {
   const currentVideo = document.getElementById("active-participant");
   currentVideo.srcObject = stream;
-  currentVideo.setAttribute("muted", isMuted);
 }
 
 //----------------------------------------------------------------------------------------------------------------------
