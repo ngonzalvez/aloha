@@ -2,12 +2,15 @@
 <p align="center">The simplest P2P video-call app implemented with WebRTC</p>
 <h1></h1>
 
+&nbsp;
 #### Try it
 Navigate to [aloha.ncode.uy](https://aloha.ncode.uy), copy the room link and share it with a friend.
 
+&nbsp;
 #### About the project
 Aloha started as a blog post to show other developers how easy it is to share a multimedia stream over a P2P connection using WebRTC. If you'd like to learn more about the inner workings of **aloha** [here is the blog post](https://ncode.uy/p2p-video-streaming-with-webrtc).
 
+&nbsp;
 #### Installation
 1. Clone the repo.
 ```sh
@@ -22,6 +25,7 @@ cd aloha && npm install
 npm start
 ```
 
+&nbsp;
 #### Built With
 - `express`
 - `socket.io`
