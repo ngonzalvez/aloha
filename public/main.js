@@ -17,8 +17,8 @@ async function init() {
     audio: true,
   });
 
-  addParticipantStream(localStream, "me");
-  setActiveParticipantStream(localStream);
+  addParticipantStream(localStream, "me", true);
+  setActiveParticipantStream(localStream, true);
   socket.emit("JoinRoom", roomId);
 }
 
@@ -32,17 +32,19 @@ function addParticipantStream(stream, peerId) {
   const video = document.createElement("video");
   video.srcObject = stream;
   video.autoplay = true;
-  video.onclick = () => setActiveParticipantStream(stream);
+  video.onclick = () => setActiveParticipantStream(stream, peerId === "me");
   video.setAttribute("data-peer-id", peerId);
+  video.setAttribute("muted", peerId === "me");
 
   // Append it to the participants container.
   const container = document.getElementById("participants");
   container.appendChild(video);
 }
 
-function setActiveParticipantStream(stream) {
+function setActiveParticipantStream(stream, isMuted) {
   const currentVideo = document.getElementById("active-participant");
   currentVideo.srcObject = stream;
+  currentVideo.setAttribute("muted", isMuted);
 }
 
 //----------------------------------------------------------------------------------------------------------------------
