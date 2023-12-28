@@ -12,12 +12,12 @@ body {
 
 /* Styles for the main video stream */
 #active-participant {
-  background: #fff;
+  background: black;
   border-radius: 16px;
   width: calc(100% - 40px);
   height: calc(100% - 40px);
   margin: 20px;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 
