@@ -1,5 +1,5 @@
 <h3 align="center">aloha</h3>
-<p align="center">The simplest P2P video-call app implemented with WebRTC</p>
+<p align="center">A simple P2P video-call app implemented with WebRTC</p>
 <h1></h1>
 
 &nbsp;
