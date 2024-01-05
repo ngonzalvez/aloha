@@ -7,7 +7,7 @@
 Navigate to [aloha.ncode.uy](https://aloha.ncode.uy), copy the room link and share it with a friend.
 
 #### About the project
-Aloha started as a blog post to show other developers how easy it is to share a multimedia stream over a P2P connection using WebRTC. If you'd like to learn more about the inner workings of **aloha** [here is the blog post](https://ncode.uy/p2p-video-streaming-with-webrtc).
+I implemented Aloha while writing a blog post to show other developers how easy it is to share a multimedia stream over a P2P connection using WebRTC. If you'd like to learn more about the inner workings of **aloha** [here is the blog post](https://ncode.uy/p2p-video-streaming-with-webrtc).
 
 #### Installation
 1. Clone the repo.
